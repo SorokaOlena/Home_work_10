@@ -84,11 +84,11 @@ public class MainPageTest extends BaseTest {
         //     );
     }
 
-//    @AfterMethod
-//    public void cleanup() {
-//        driver.manage().deleteAllCookies();
-//        TestHelper.sleep5Seconds();
-//        driver.close();
-//    }
+    @AfterMethod
+    public void cleanup() {
+        driver.manage().deleteAllCookies();
+        TestHelper.sleep5Seconds();
+        driver.close();
+    }
 
 }

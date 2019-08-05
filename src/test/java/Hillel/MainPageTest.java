@@ -71,46 +71,24 @@ public class MainPageTest extends BaseTest {
 
     @Test
     public void testToCheckoutDeletedProduct() {
-
-
+        mainPage.clickDeleteButton();
+        emptyCardPage = new EmptyCardPage(driver);
         Assert.assertTrue(
 
-                emptyCardPage.getCheckoutMessage().contains(
-                        mainPage.clickDeleteButton();
+
+                emptyCardPage.getCheckoutMessage().contains("Your shopping cart is empty."));
+                     //   mainPage.clickDeleteButton());
         //    .toCheckoutDeletedProduct();
-        emptyCardPage.getCheckoutMessage())
-        );
+     //   emptyCardPage.getCheckoutMessage();
         //   .isErrorMesage()
         //     );
     }
 
-}
-
-
-
-
-
-//        String actualResult7 = mainPage.isErrorMesage();
-//        String expectedResult7 = "true";
-//
-////
-//        mainPage.clickDeleteButton();
-//        mainPage.toCheckoutDeletedProduct();
-//        mainPage.isErrorMesage();
-////
-//
-//
-//        Assert.assertEquals(expectedResult7, actualResult7, "isErrorMesage");
-
-//        mainPage.isErrorMesage();
-//        Assert.assertFalse(false);
-
-
-    @AfterMethod
-    public void cleanup() {
-        driver.manage().deleteAllCookies();
-        TestHelper.sleep5Seconds();
-        driver.close();
-    }
+//    @AfterMethod
+//    public void cleanup() {
+//        driver.manage().deleteAllCookies();
+//        TestHelper.sleep5Seconds();
+//        driver.close();
+//    }
 
 }

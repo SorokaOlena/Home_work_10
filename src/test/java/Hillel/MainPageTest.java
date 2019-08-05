@@ -15,8 +15,10 @@ public class MainPageTest extends BaseTest {
     private EmptyCardPage emptyCardPage;
 
 
+
     @BeforeMethod
     public void setupMainPage() {
+        emptyCardPage = new EmptyCardPage(driver);
         mainPage = new MainPage(driver);
         mainPage.fillSearch("Blouse")
                 .clickSearchButton()
@@ -72,15 +74,15 @@ public class MainPageTest extends BaseTest {
     @Test
     public void testToCheckoutDeletedProduct() {
         mainPage.clickDeleteButton();
-        emptyCardPage = new EmptyCardPage(driver);
+
+        System.out.println("text is : " + emptyCardPage.getCheckoutMessage());
         Assert.assertTrue(
-
-
                 emptyCardPage.getCheckoutMessage().contains("Your shopping cart is empty."));
+
                      //   mainPage.clickDeleteButton());
         //    .toCheckoutDeletedProduct();
      //   emptyCardPage.getCheckoutMessage();
-        //   .isErrorMesage()
+       //    .isErrorMesage()
         //     );
     }
 

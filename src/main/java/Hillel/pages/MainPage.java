@@ -13,8 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class MainPage {
 
-  //  private String item ="Blouse";
-
+    //  private String item ="Blouse";
 
 
     private WebDriver driver;
@@ -44,19 +43,19 @@ public class MainPage {
     @FindBy(xpath = TITLE_PROCEED_TO_CHECKOUT)
     private WebElement proceedCheckout;
 
-    @FindBy (xpath = "//span[@id='total_product_price_2_7_0']")
+    @FindBy(xpath = "//span[@id='total_product_price_2_7_0']")
     private WebElement cardTotal;
 
-    @FindBy (xpath = "//td[@id='total_product']")
+    @FindBy(xpath = "//td[@id='total_product']")
     private WebElement totalProduct;
 
-    @FindBy (xpath = "//td[@id='total_shipping']")
+    @FindBy(xpath = "//td[@id='total_shipping']")
     private WebElement totalShipping;
 
-    @FindBy (xpath = "//td[@id='total_price_without_tax']")
+    @FindBy(xpath = "//td[@id='total_price_without_tax']")
     private WebElement totalPriceWithoutTax;
 
-    @FindBy (xpath = "//td[@id='total_tax']")
+    @FindBy(xpath = "//td[@id='total_tax']")
     private WebElement tax;
 
     @FindBy(xpath = "//span[@id='total_price']")
@@ -76,32 +75,33 @@ public class MainPage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
-    public MainPage fillSearch(String text){
+
+    public MainPage fillSearch(String text) {
         searchField.sendKeys(text);
         return this;
     }
 
-    public MainPage clickSearchButton(){
+    public MainPage clickSearchButton() {
         searchButton.click();
         return this;
     }
 
-    public void navigateToItemView () {
+    public void navigateToItemView() {
         Actions actions = new Actions(driver);
         actions.moveToElement(itemView).build().perform();
     }
 
-    public MainPage clickListView(){
+    public MainPage clickListView() {
         listView.click();
         return this;
     }
 
-    public MainPage clickAddButton(){
+    public MainPage clickAddButton() {
         addButton.click();
         return this;
     }
 
-    public MainPage clickAddToCart(){
+    public MainPage clickAddToCart() {
         addCartButton.click();
         return this;
     }
@@ -125,32 +125,36 @@ public class MainPage {
         return this;
     }
 
-    public String getCardTotal (){
-        return cardTotal.getText(); }
-    public String getTotalProduct ()
-    {
+    public String getCardTotal() {
+        return cardTotal.getText();
+    }
+
+    public String getTotalProduct() {
         return totalProduct.getText();
     }
-    public String getTotalShipping(){
+
+    public String getTotalShipping() {
 
         return totalShipping.getText();
     }
-    public String getTotalPriceWithoutTax()
-    {
+
+    public String getTotalPriceWithoutTax() {
         return totalPriceWithoutTax.getText();
     }
-    public String getTax(){
+
+    public String getTax() {
 
         return tax.getText();
     }
-    public String getTotalPrice(){
-        return totalSum.getText();}
 
-    public MainPage clickDeleteButton(){
+    public String getTotalPrice() {
+        return totalSum.getText();
+    }
+
+    public MainPage clickDeleteButton() {
         deletebutton.click();
         return this;
     }
-
 
 
 //    public MainPage toCheckoutDeletedProduct(){
@@ -160,15 +164,15 @@ public class MainPage {
 //    }
 
 
-
-//    public String isErrorMesage(){
-//        this.driver.findElement(By.xpath(TITLE_PROCEED_TO_CHECKOUT3)).isDisplayed();
-//        return this;
+    public boolean isErrorMesage() {
+      return  this.driver.findElement(By.xpath(TITLE_PROCEED_TO_CHECKOUT3)).isDisplayed();
 //
 //        public String getAccountName(){
 //            return accountBtn.getText();
 //        }
 
     }
+}
+
 
 

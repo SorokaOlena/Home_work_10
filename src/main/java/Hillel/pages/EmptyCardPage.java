@@ -11,7 +11,7 @@ public class EmptyCardPage {
 
     private WebDriver driver;
 
-    @FindBy(xpath = "//p[@class='alert alert-warning'][contains(text(),'Your shopping cart is empty.')]")
+    @FindBy(xpath = "//*[@id=\"center_column\"]/p")
     private WebElement checkoutMessage;
 
     public EmptyCardPage(WebDriver driver) {

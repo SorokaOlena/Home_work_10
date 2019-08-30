@@ -16,12 +16,11 @@ public class MainPage {
     //  private String item ="Blouse";
 
 
-    private WebDriver driver;
-
     private final static String TITLE_PROCEED_TO_CHECKOUT = "//*[@title='Proceed to checkout']";
-    private final static String TITLE_PROCEED_TO_CHECKOUT2 = "//*[@id=\"total_price\"][contains(text(),'$56.00')]";
-    private final static String TITLE_PROCEED_TO_CHECKOUT3 = "//p[@class='alert alert-warning'][contains(text(),'Your shopping cart is empty.')]";
-
+    //    private final static String TITLE_PROCEED_TO_CHECKOUT2 = "//*[@id=\"total_price\"][contains(text(),'$56.00')]";
+    private final static String TITLE_PROCEED_TO_CHECKOUT2 = "//*[@id=\"summary_products_quantity\"][contains(text(),'2 Products')]";
+    private final static String TITLE_PROCEED_TO_CHECKOUT3 = "//*[@id=\"center_column\"]/p";
+    private WebDriver driver;
     @FindBy(xpath = "//header[@id='header']//input[@id='search_query_top']")
     private WebElement searchField;
 
@@ -119,9 +118,7 @@ public class MainPage {
     }
 
     public MainPage clickProceedToCheckout2() {
-        new WebDriverWait(driver, 10).
-                until(ExpectedConditions.visibilityOfElementLocated(By.
-                        xpath(TITLE_PROCEED_TO_CHECKOUT2))).getText();
+        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TITLE_PROCEED_TO_CHECKOUT2))).getText();
         return this;
     }
 
@@ -157,15 +154,20 @@ public class MainPage {
     }
 
 
-//    public MainPage toCheckoutDeletedProduct(){
-//        new WebDriverWait(driver, 10).
-//                until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TITLE_PROCEED_TO_CHECKOUT3)));
-//        return this;
-//    }
+    public MainPage toCheckoutDeletedProduct(){
+        new WebDriverWait(driver, 10).
+                until(ExpectedConditions.visibilityOfElementLocated(By.xpath(TITLE_PROCEED_TO_CHECKOUT3)));
+
+        //   WebElement explicitWait = (new WebDriverWait(driver, 10))
+        //   Wait<WebDriver> wait = new WebDriverWait(driver, 100, 9000);
+
+
+        return this;
+    }
 
 
     public boolean isErrorMesage() {
-      return  this.driver.findElement(By.xpath(TITLE_PROCEED_TO_CHECKOUT3)).isDisplayed();
+        return this.driver.findElement(By.xpath(TITLE_PROCEED_TO_CHECKOUT3)).isDisplayed();
 //
 //        public String getAccountName(){
 //            return accountBtn.getText();

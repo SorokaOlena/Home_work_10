@@ -3,16 +3,23 @@ package Hillel;
 
 import Hillel.pages.MainPage;
 import Hillel.utils.TestHelper;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import Hillel.pages.EmptyCardPage;
+import org.openqa.selenium.WebDriver;
 
 public class MainPageTest extends BaseTest {
 
     private MainPage mainPage;
     private EmptyCardPage emptyCardPage;
+    private TestHelper testHelper;
+
+    String expectedResult4 = "$56.00";
 
 
 
@@ -73,17 +80,15 @@ public class MainPageTest extends BaseTest {
 
     @Test
     public void testToCheckoutDeletedProduct() {
+
         mainPage.clickDeleteButton();
+        testHelper = new TestHelper();
+        testHelper.toWait("//*[text()[contains(.,'Your shopping cart is empty.')]]",driver);
 
         System.out.println("text is : " + emptyCardPage.getCheckoutMessage());
         Assert.assertTrue(
                 emptyCardPage.getCheckoutMessage().contains("Your shopping cart is empty."));
 
-                     //   mainPage.clickDeleteButton());
-        //    .toCheckoutDeletedProduct();
-     //   emptyCardPage.getCheckoutMessage();
-       //    .isErrorMesage()
-        //     );
     }
 
     @AfterMethod

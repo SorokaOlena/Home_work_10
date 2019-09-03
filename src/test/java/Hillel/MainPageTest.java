@@ -68,7 +68,7 @@ public class MainPageTest extends BaseTest {
     public void testGetTax() {
         String actualResult5 = mainPage.getTax();
         String expectedResult5 = "$0.00";
-        Assert.assertEquals(actualResult5, expectedResult5, "getTax");
+        Assert.assertEquals(expectedResult5,actualResult5,  "getTax");
     }
 
     @Test
